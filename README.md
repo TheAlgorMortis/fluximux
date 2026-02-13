@@ -9,7 +9,7 @@ A minimal, reactive tmux network status + speedtest plugin.
 ### Standard internet traffic monitoring
 ![Fluximux Standard](images/standard.png)
 
-### Monitoring during a speed test (<prefix> + q by default)
+### Monitoring during a speed test (\<prefix\> + q by default)
 ![Fluximux Speedtest](images/speedtest.png)
 
 ### No connectivity
