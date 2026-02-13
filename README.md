@@ -6,6 +6,15 @@ A minimal, reactive tmux network status + speedtest plugin.
 
 ---
 
+### Standard internet traffic monitoring
+![Fluximux Standard](images/standard.png)
+
+### Monitoring during a speed test (<prefix> + q by default)
+![Fluximux Speedtest](images/speedtest.png)
+
+### No connectivity
+![Fluximux No Internet](images/nointernet.png)
+
 ## ✨ Features
 
 - Live network speed (↓ / ↑ Mbps)
@@ -39,6 +48,19 @@ Add to your `.tmux.conf`:
 set -g @plugin 'TheAlgorMortis/fluximux'
 ```
 
+The below will add the speedtest monitor to your status bar. 
+
+WARNING: If you have other things in your status bar, you will need to put this string somewhere in there, but dont copy and paste, as it will remove whatever else you have.
+```
+set -g status-right "#(#{HOME}/.tmux/plugins/fluximux/scripts/flux_status.sh)"
+```
+
+Then add the below to allow the speed monitor to refresh every second.
+```
+set -g status-interval 1
+```
+
+
 Then run:
 
 ```
@@ -69,40 +91,7 @@ When triggered:
 3. Suppresses all output  
 4. Uses flag files to signal status  
 
-### Status Icons
-
-| State | Icon |
-|--------|------|
-| Normal | ⇵ |
-| Download test | 🔻 (flashing) |
-| Upload test | 🔺 (flashing) |
-| Running (fallback) | ⏳ |
-| No network | ? |
-
----
-
-## 🎨 Separator Styles
-
-Configure via:
-
-```tmux
-set -g @fluximux_separator_style "slanted"
-```
-
-Options:
-
-| Style    | Characters |
-|----------|------------|
-| slanted  | ◥ ◣ |
-| straight | (space) |
-| pointed  |   |
-| rounded  |   |
-
-Default: `slanted`
-
----
-
-## ⚙ Full Configuration
+## ⚙ Full Configuration Example including all configuration settings.
 
 Paste this into your `.tmux.conf` to override defaults:
 
